@@ -1,0 +1,20 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+  <div fxFlex>
+    <p>Writing a story, poem or a composition is an art and these things provide the wings to someone's imaginations so that he can feel his imaginory world and provide some ideas and confidence to a person so that he may try to bring that imaginations in the real life.</p>
+    <p>Pointing out something good, describes the benefits of that thing. While pointing bad just provide the feedback so that, we or the workers may work on it, to make it better and simple to use.</p>
+    <p>Here are three sections for such masters, so that they can write these things or can use the content to spread the knowledge and to bring someone's dream to the real world.</p>
+  </div>
+  <div *ngIf="show() else elseBlock" fxFlex>
+    <mat-grid-list cols="3">
+      <mat-grid-tile *ngFor="let td of todos" [routerLink]="['/sections', td.name]">
+        <img height="200px" src={{td.image}} alt={{td.name}}>
+        <mat-grid-tile-footer><h1>{{td.name | uppercase}}</h1></mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+    <ng-template #elseBlock>
+    <h1 style="text-align: center; border: 2px dotted red">Please Login to your account!!!</h1>
+    <ng-template>
+  <div fxFlex>
+    <p>Hope, you have enjoyed reading and feeling happy to become the part of the team, who is making the world aware about the power of knowledge and imagination.
+  </div>

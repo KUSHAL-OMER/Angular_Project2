@@ -1,0 +1,12 @@
+a{
+  color: blanchedalmond;
+  font-size:large;
+}
+a:hover{
+  color: aliceblue;
+  font-weight: bold;
+  background-color: cornflowerblue;
+}
+a:active{
+  color: aliceblue;
+}

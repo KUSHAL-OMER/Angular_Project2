@@ -1,0 +1,19 @@
+<div class="container">
+<mat-toolbar color="primary">
+    <mat-toolbar-row><h2 style="font-size: 50px;"> <span>Publishians</span> </h2>
+    <span style="padding-left: 400px;" class="spacer"></span>
+      <a mat-button *ngIf="show()" (click)="openLoginForm()"><mat-icon>login</mat-icon>  Login</a>
+      <p *ngIf="!show()">{{datainfo()}}</p>
+      <a mat-button *ngIf="!show()" (click)="closeLogin()"><mat-icon>logout</mat-icon>  LogOut</a>
+      <a mat-button *ngIf="show()" (click)="openSignupForm()"><mat-icon>account_circle</mat-icon> SignUp</a>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <nav mat-tab-nav-bar>
+      <a routerLink="Home" routerLinkActive="active" mat-tab-link> <mat-icon>home</mat-icon><span> </span> Home</a>
+      <a routerLink="AboutUs" routerLinkActive="active" mat-tab-link> <mat-icon>info</mat-icon><span> </span> About Us</a>
+      <a routerLink="Work" routerLinkActive="active" mat-tab-link> <mat-icon>assignment</mat-icon><span> </span> Work</a>
+      <a routerLink="ContactUs" routerLinkActive="active" mat-tab-link> <mat-icon>contact_page</mat-icon><span> </span> Contact Us</a>
+      </nav>
+    </mat-toolbar-row>
+</mat-toolbar>
+</div>

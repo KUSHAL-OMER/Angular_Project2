@@ -1,0 +1,51 @@
+<h1>{{items[0].name}}</h1>
+<hr>
+<div fxFlex *ngIf="enableDisable()">
+<mat-expansion-panel *ngFor="let co of cont" hideToggle>
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+  {{co.title}}
+  </mat-panel-title>
+  <mat-panel-description>
+  {{co.author}}
+  </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>{{co.matter}}</p>
+  <mat-action-row>
+    <google-pay-button
+    environment="TEST"
+    buttonType="buy"
+    buttonColor="white"
+    [paymentRequest]="paymentRequest"
+    (loadpaymentdata)="onLoadPaymentData($event)">
+    </google-pay-button>
+  </mat-action-row>
+</mat-expansion-panel>
+</div>
+<div fxFlex *ngIf="!enableDisable()" style="padding-left: 100px;">
+  <form [formGroup]="appenForm" #formdirect="ngForm" (ngSubmit)="onSubmit(formdirect)">
+  <mat-form-field style="width: 200px;">
+  <mat-label>Title</mat-label>
+  <input matInput [formControl]="title" name="title" required>
+  <mat-error *ngIf="title.invalid">Title is required</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width: 200px;">
+  <mat-label>Author</mat-label>
+  <input matInput [formControl]="author" name="author" required>
+  <mat-error *ngIf="author.invalid">Author's name is required</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width: 600px;">
+  <mat-label>Summary</mat-label>
+  <textarea matInput [formControl]="matter" name="matter"  rows="3"></textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width: 600px;">
+  <mat-label>Story</mat-label>
+  <textarea matInput [formControl]="maincon" name="maincon"  rows="5"></textarea>
+  </mat-form-field>
+  <br>
+  <button type="submit" [disabled]="!appenForm.valid" mat-raised-button color="primary">Submit</button>
+  </form>
+</div>
